@@ -36,4 +36,28 @@ public class AppTest {
         assertFalse(App.checkPassword(string));
     }
 
+    @Description("Testing Uppercase and Lowercase")
+    @Test
+    public void UpperLowerCase(){
+
+        String string = "Abcdefghi58!";
+        assertTrue(App.checkPassword(string));
+    }
+    @Test
+    public void allUppercase(){
+
+        String string = "ABCDEFGHIJ58!";
+        assertFalse(App.checkPassword(string));
+    }
+    @Test
+    public void allLowercase(){
+
+        String string = "abcdefghij58!";
+        assertFalse(App.checkPassword(string));
+    }
+
+
+
+
+
 }
