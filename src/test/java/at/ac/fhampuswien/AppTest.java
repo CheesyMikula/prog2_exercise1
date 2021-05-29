@@ -70,7 +70,25 @@ public class AppTest {
         assertFalse(App.checkPassword(string));
     }
 
+    @Description("Testing special characters")
+    @Test
+    public void spCharacter1(){
 
+        String string = "Abcdefghi58!";
+        assertTrue(App.checkPassword(string));
+    }
+    @Test
+    public void spCharacter2(){
+
+        String string = "Abcdefghi58";
+        assertFalse(App.checkPassword(string));
+    }
+    @Test
+    public void spCharacter3(){
+
+        String string = "Abcdefghi58&";
+        assertFalse(App.checkPassword(string));
+    }
 
 
 
