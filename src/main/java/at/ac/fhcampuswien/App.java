@@ -6,7 +6,7 @@ public class App {
 
     public static boolean checkPassword(String password){
         int numbersCount = 0;
-        int spCharactesCount = 0;
+        int spCharactersCount = 0;
 
         if(password.length() < 8 || password.length() > 25){
             return false;
@@ -21,13 +21,23 @@ public class App {
                 numbersCount++;
             }
             else if(ch == '(' || ch == ')' || ch == '#' || ch == '$' || ch == '?' || ch == '!' || ch == '%' || ch == '/' || ch == '@'){
-                spCharactesCount++;
+                spCharactersCount++;
             }
+
+            if(numbersCount > 1){
+                if(password.charAt(i-1)+1 == password.charAt(i) && password.charAt(i)+1 == password.charAt(i+1)){
+                    return false;
+                }
+                else if(password.charAt(i-1) == password.charAt(i) && password.charAt(i) == password.charAt(i+1) && password.charAt(i) == password.charAt(i+2)){
+                    return false;
+                }
+            }
+
         }
         if(numbersCount == 0){
             return false;
         }
-        else if(spCharactesCount == 0){
+        else if(spCharactersCount == 0){
             return false;
         }
         return true;

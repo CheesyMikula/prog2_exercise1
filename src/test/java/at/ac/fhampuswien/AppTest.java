@@ -90,7 +90,31 @@ public class AppTest {
         assertFalse(App.checkPassword(string));
     }
 
+    @Description("Extensions: Testing ongoing numbers and repetitive numbers")
+    @Test
+    public void ongoingNumber1(){
 
+        String string = "Abcdefghi56!";
+        assertTrue(App.checkPassword(string));
+    }
+    @Test
+    public void ongoingNumber2(){
+
+        String string = "Abcdefghi567!";
+        assertFalse(App.checkPassword(string));
+    }
+    @Test
+    public void repeatingNumbers1(){
+
+        String string = "Abcdefghi555!";
+        assertTrue(App.checkPassword(string));
+    }
+    @Test
+    public void repeatingNumbers2(){
+
+        String string = "Abcdefghi5555!";
+        assertFalse(App.checkPassword(string));
+    }
 
 
 }
