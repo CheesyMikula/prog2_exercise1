@@ -6,8 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest {
 
@@ -19,11 +18,22 @@ public class AppTest {
 
     @Description("Testing password length")
     @Test
-    public void pwLength(){
+    public void pwLength1(){
 
-        String string = "abcdefghijk";
+        String string = "Abcdefghi58!";
         assertTrue(App.checkPassword(string));
     }
+    @Test
+    public void pwLength2(){
 
+        String string = "abcdefghijklmnopqrstuvwxyz";
+        assertFalse(App.checkPassword(string));
+    }
+    @Test
+    public void pwLength3(){
+
+        String string = "abcde";
+        assertFalse(App.checkPassword(string));
+    }
 
 }
