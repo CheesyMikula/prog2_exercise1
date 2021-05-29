@@ -56,6 +56,21 @@ public class AppTest {
         assertFalse(App.checkPassword(string));
     }
 
+    @Description("Testing numbers")
+    @Test
+    public void Numbers1(){
+
+        String string = "Abcdefghi58!";
+        assertTrue(App.checkPassword(string));
+    }
+    @Test
+    public void Numbers2(){
+
+        String string = "Abcdefghij!";
+        assertFalse(App.checkPassword(string));
+    }
+
+
 
 
 
